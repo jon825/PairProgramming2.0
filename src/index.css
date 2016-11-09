@@ -1,0 +1,38 @@
+body {
+  background-color: black;
+
+}
+
+.tictactoeContainer{
+  width: 620px;
+  height: 620px;
+}
+
+.tictactoeBox {
+  background-color:black;
+  width: 200px;
+  height: 200px;
+  border: solid;
+  border-color: white;
+  float: left;
+  color: white;
+}
+
+.tictactoeBoxActive {
+  background-color:salmon;
+  width: 200px;
+  height: 200px;
+  border: solid;
+  border-color: white;
+  float: left;
+  color: white;
+  font-size: 100px;
+  text-align: center;
+}
+
+p {
+  color: white;
+}
+
+
+
