@@ -96,73 +96,30 @@ class App extends Component {
   didSomeoneWin() {
     let isthereawinner = this.state.isthereawinner;
     var whoWon = ""
-    
-    if (this.state.tictactoe[0].isitXorO == "X" && this.state.tictactoe[1].isitXorO == "X" && this.state.tictactoe[2].isitXorO == "X" ){
-      console.log('Player1 won')
+    if ((this.state.tictactoe[0].isitXorO === this.state.tictactoe[1].isitXorO) && (this.state.tictactoe[0].isitXorO === this.state.tictactoe[2].isitXorO) && this.state.tictactoe[0].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[0].isitXorO == "X" && this.state.tictactoe[3].isitXorO == "X" && this.state.tictactoe[6].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[0].isitXorO === this.state.tictactoe[3].isitXorO) && (this.state.tictactoe[0].isitXorO === this.state.tictactoe[6].isitXorO) && this.state.tictactoe[0].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[0].isitXorO == "X" && this.state.tictactoe[4].isitXorO == "X" && this.state.tictactoe[8].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[0].isitXorO === this.state.tictactoe[4].isitXorO) && (this.state.tictactoe[0].isitXorO === this.state.tictactoe[8].isitXorO) && this.state.tictactoe[0].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[3].isitXorO == "X" && this.state.tictactoe[4].isitXorO == "X" && this.state.tictactoe[5].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[3].isitXorO === this.state.tictactoe[4].isitXorO) && (this.state.tictactoe[3].isitXorO === this.state.tictactoe[5].isitXorO) && this.state.tictactoe[3].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[6].isitXorO == "X" && this.state.tictactoe[7].isitXorO == "X" && this.state.tictactoe[8].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[6].isitXorO === this.state.tictactoe[7].isitXorO) && (this.state.tictactoe[6].isitXorO === this.state.tictactoe[8].isitXorO) && this.state.tictactoe[6].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[1].isitXorO == "X" && this.state.tictactoe[4].isitXorO == "X" && this.state.tictactoe[7].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[1].isitXorO === this.state.tictactoe[4].isitXorO) && (this.state.tictactoe[1].isitXorO === this.state.tictactoe[6].isitXorO) && this.state.tictactoe[7].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[2].isitXorO == "X" && this.state.tictactoe[5].isitXorO == "X" && this.state.tictactoe[8].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[2].isitXorO === this.state.tictactoe[5].isitXorO) && (this.state.tictactoe[2].isitXorO === this.state.tictactoe[8].isitXorO) && this.state.tictactoe[2].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[6].isitXorO == "X" && this.state.tictactoe[4].isitXorO == "X" && this.state.tictactoe[2].isitXorO == "X"){
-      console.log('Player1 won')
+    } else if ((this.state.tictactoe[2].isitXorO === this.state.tictactoe[4].isitXorO) && (this.state.tictactoe[2].isitXorO === this.state.tictactoe[6].isitXorO) && this.state.tictactoe[2].draw === true) {
       isthereawinner = true
-      whoWon = "Player1 won"
-    } else if(this.state.tictactoe[0].isitXorO == "O" && this.state.tictactoe[1].isitXorO == "O" && this.state.tictactoe[2].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[0].isitXorO == "O" && this.state.tictactoe[3].isitXorO == "O" && this.state.tictactoe[6].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[0].isitXorO == "O" && this.state.tictactoe[4].isitXorO == "O" && this.state.tictactoe[8].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[3].isitXorO == "O" && this.state.tictactoe[4].isitXorO == "O" && this.state.tictactoe[5].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[6].isitXorO == "O" && this.state.tictactoe[7].isitXorO == "O" && this.state.tictactoe[8].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[1].isitXorO == "O" && this.state.tictactoe[4].isitXorO == "O" && this.state.tictactoe[7].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[2].isitXorO == "O" && this.state.tictactoe[5].isitXorO == "O" && this.state.tictactoe[8].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
-    } else if(this.state.tictactoe[6].isitXorO == "O" && this.state.tictactoe[4].isitXorO == "O" && this.state.tictactoe[2].isitXorO == "O"){
-      console.log('Player2 won')
-      isthereawinner = true
-      whoWon = "Player2 won"
     }
+    whoWon = ""
     if (isthereawinner === true) {
+      if (this.state.isitPlayer1 === true) {
+        whoWon = "Player 1 won"
+      } else {
+        whoWon = "Player 2 won"
+      }
       this.setState ({
       gamecomplete: isthereawinner,
       isthereawinner: whoWon
