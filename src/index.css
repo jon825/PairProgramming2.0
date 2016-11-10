@@ -4,7 +4,7 @@ body {
 }
 
 .tictactoeContainer{
-  padding-top: 150px;
+  padding-top: 120px;
   width: 320px;
   height: 320px;
   margin: auto;
@@ -20,9 +20,9 @@ body {
   color: white;
   border-radius: 10px;
 }
+
 .buttonIcons{
-  position: absolute;
-  top: 60px;
+  padding-bottom: 20px;
 }
 
 
@@ -55,12 +55,12 @@ body {
 p {
   color: white;
   font-family: sans-serif;
-  line-height: 400%;
 }
 
 button {
   margin-right: 20px;
 }
+
 
 
 

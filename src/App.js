@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -20,14 +19,14 @@ class App extends Component {
       isitPlayer1: false,
       gamecomplete: false,
       isthereawinner: false,
-      score:{player1: 0, player2: 0, ties: 0}
+      score: {player1: 0, player2: 0, ties: 0}
     }
   this.handleClick = this.handleClick.bind(this);
   this.gameComplete = this.gameComplete.bind(this);
   this.newGamehandleClick = this.newGamehandleClick.bind(this);
   this.handleClearScore = this.handleClearScore.bind(this);
-
   }
+
   handleClick(i){
     let clickComplete = this.state.tictactoe;
     let isitPlayer1 = this.state.isitPlayer1;
@@ -45,12 +44,9 @@ class App extends Component {
       tictactoe: clickComplete,
       isitPlayer1: isitPlayer1
     })
-    // console.log(isitPlayer1)
   }
 
   newGamehandleClick(){
-    let newGame = this.state.tictactoe;
-    // console.log(newGame)
     this.setState({
       tictactoe: [
         {draw: false, isitXorO: "", id: 1},
@@ -66,13 +62,11 @@ class App extends Component {
        isitPlayer1: false,
       gamecomplete: false,
       isthereawinner: false
-
     })
 
   }
 
   handleClearScore() {
-    let clearedscore = this.state.tictactoe; 
     this.setState({
       tictactoe: [
         {draw: false, isitXorO: "", id: 1},
@@ -93,7 +87,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.gamecomplete != true) {
+    if (this.state.gamecomplete !== true) {
       this.gameComplete();
       this.didSomeoneWin();
     }
@@ -137,17 +131,16 @@ class App extends Component {
     } else if ((this.state.tictactoe[2].isitXorO === this.state.tictactoe[4].isitXorO) && (this.state.tictactoe[2].isitXorO === this.state.tictactoe[6].isitXorO) && this.state.tictactoe[2].draw === true) {
       isthereawinner = true
     }
+    
     whoWon = ""
-    console.log("Checking if there's a winner: " + isthereawinner);
-    console.log("Checking if the game is complete: " + this.state.gamecomplete);
+
     if (isthereawinner === true) {
-      // console.log("I'm in the if statement.");
       if (this.state.isitPlayer1 === true) {
-        whoWon = "Player 1 won";
-        player1 = player1 + 1;
+        whoWon = "GAGNEAU! Player 1 WINS!";
+        player1 += 1;
       } else {
-        whoWon = "Player 2 won";
-        player2 = player2 + 1;
+        whoWon = "GAGNEAU! Player 2 WINS!";
+        player2 += 1;
       }
       this.setState ({
       gamecomplete: isthereawinner,
@@ -155,41 +148,40 @@ class App extends Component {
       score: {player1, player2, ties: tiecount}
       })
     } else if (isthereawinner === false && this.state.gamecomplete === true) {
-      // console.log("I'm in the else if.")
-        tiecount = tiecount + 1;
+        tiecount += 1;
+        whoWon = "SHOOT, YOU TIED! READY TO DUKE IT OUT?"
         console.log("end" + tiecount)
       this.setState ({
+        isthereawinner: whoWon,
         score: {player1, player2, ties: tiecount}
       })
-      // console.log(this.state.score.ties);
     }
   }
 
   render() {
     const tictactoes = this.state.tictactoe
     let tictactoestate = ""
-    const isitPlayer1 = this.state.isitPlayer1;
     const tictactoeBoxes = tictactoes.map((box, i) => {
       if (box.draw === true && box.isitXorO === "X") {
         tictactoestate = "tictactoeBoxActive";
         return (<div 
-          onClick = {this.handleClick.bind(this, i)} 
-          className = {tictactoestate}>
+          onClick={this.handleClick.bind(this, i)} 
+          className={tictactoestate}>
             {this.state.tictactoe[i].isitXorO}
           </div>)
       } else if (box.draw === true && box.isitXorO === "O"){
         tictactoestate = "tictactoeBoxActiveO";
         return (<div 
-          onClick = {this.handleClick.bind(this, i)} 
-          className = {tictactoestate}>
+          onClick={this.handleClick.bind(this, i)} 
+          className={tictactoestate}>
             {this.state.tictactoe[i].isitXorO}
           </div>)
       }
        else if (box.draw === false) {
         tictactoestate = "tictactoeBox";
         return (<div 
-          onClick = {this.handleClick.bind(this, i)} 
-          className = {tictactoestate} >
+          onClick={this.handleClick.bind(this, i)} 
+          className={tictactoestate} >
         </div>)
         }
     });
@@ -198,17 +190,19 @@ class App extends Component {
     return (
       <div className="tictactoeContainer">
 
-      {tictactoeBoxes}
+          <div className="buttonIcons">
+              <button type="button" className="btn btn-warning" onClick={this.newGamehandleClick}>New Game</button>
+            
+              <button type="button" className="btn btn-success" onClick={this.handleClearScore}>Clear Score</button>
+          </div>
 
-        <p>GAME COMPLETE: {this.state.gamecomplete == true ? "TRUE" : "FALSE"}</p>
-        <p>{this.state.isthereawinner} </p>
-        <div className = "buttonIcons">
-          <button type="button" className="btn btn-warning" onClick = {this.newGamehandleClick}>New Game</button>
-        
-          <button type="button" className="btn btn-success" onClick = {this.handleClearScore}>Clear Score</button>
-        </div>
-        <p className = "scoreBoard">Player 1 = {this.state.score.player1} | Ties: {this.state.score.ties} | Player 2 = {this.state.score.player2}  </p>
-        
+          {tictactoeBoxes}
+
+          <div className="game-status">
+              <p>GAME COMPLETE: {this.state.gamecomplete === true ? "TRUE" : "FALSE"}</p>
+              <p>{this.state.isthereawinner} </p>
+              <p className="scoreBoard">Player 1 = {this.state.score.player1} | Ties: {this.state.score.ties} | Player 2 = {this.state.score.player2}  </p>
+          </div> 
       </div>
     );
   }
