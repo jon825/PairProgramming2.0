@@ -61,6 +61,12 @@ button {
   margin-right: 20px;
 }
 
+.game-status{
+  position: relative;
+  z-index: -1;
+  top: 20px;
+}
+
 
 
 
