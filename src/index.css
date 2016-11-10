@@ -20,6 +20,11 @@ body {
   color: white;
   border-radius: 10px;
 }
+.buttonIcons{
+  position: absolute;
+  top: 60px;
+}
+
 
 .tictactoeBoxActive {
   background-color:salmon;

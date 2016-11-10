@@ -7,20 +7,20 @@ class App extends Component {
     super();
     this.state = {
       tictactoe: [
-        {draw : false, isitXorO: "", id: 1},
-        {draw : false, isitXorO: "", id: 2},
-        {draw : false, isitXorO: "", id: 3},
-        {draw : false, isitXorO: "", id: 4},
-        {draw : false, isitXorO: "", id: 5},
-        {draw : false, isitXorO: "", id: 6},
-        {draw : false, isitXorO: "", id: 7},
-        {draw : false, isitXorO: "", id: 8},
-        {draw : false, isitXorO: "", id: 9},
+        {draw: false, isitXorO: "", id: 1},
+        {draw: false, isitXorO: "", id: 2},
+        {draw: false, isitXorO: "", id: 3},
+        {draw: false, isitXorO: "", id: 4},
+        {draw: false, isitXorO: "", id: 5},
+        {draw: false, isitXorO: "", id: 6},
+        {draw: false, isitXorO: "", id: 7},
+        {draw: false, isitXorO: "", id: 8},
+        {draw: false, isitXorO: "", id: 9},
       ],
       isitPlayer1: false,
       gamecomplete: false,
-      isthereawinner: "",
-      score:{player1 : 0, player2 : 0}
+      isthereawinner: false,
+      score:{player1: 0, player2: 0, ties: 0}
     }
   this.handleClick = this.handleClick.bind(this);
   this.gameComplete = this.gameComplete.bind(this);
@@ -29,8 +29,6 @@ class App extends Component {
 
   }
   handleClick(i){
-    // console.log('draws')
-    // console.log(i);
     let clickComplete = this.state.tictactoe;
     let isitPlayer1 = this.state.isitPlayer1;
     let gameComplete = this.state.gamecomplete;
@@ -47,27 +45,28 @@ class App extends Component {
       tictactoe: clickComplete,
       isitPlayer1: isitPlayer1
     })
-    console.log(isitPlayer1)
+    // console.log(isitPlayer1)
   }
 
   newGamehandleClick(){
     let newGame = this.state.tictactoe;
-    console.log(newGame)
+    // console.log(newGame)
     this.setState({
       tictactoe: [
-        {draw : false, isitXorO: "", id: 1},
-        {draw : false, isitXorO: "", id: 2},
-        {draw : false, isitXorO: "", id: 3},
-        {draw : false, isitXorO: "", id: 4},
-        {draw : false, isitXorO: "", id: 5},
-        {draw : false, isitXorO: "", id: 6},
-        {draw : false, isitXorO: "", id: 7},
-        {draw : false, isitXorO: "", id: 8},
-        {draw : false, isitXorO: "", id: 9},
+        {draw: false, isitXorO: "", id: 1},
+        {draw: false, isitXorO: "", id: 2},
+        {draw: false, isitXorO: "", id: 3},
+        {draw: false, isitXorO: "", id: 4},
+        {draw: false, isitXorO: "", id: 5},
+        {draw: false, isitXorO: "", id: 6},
+        {draw: false, isitXorO: "", id: 7},
+        {draw: false, isitXorO: "", id: 8},
+        {draw: false, isitXorO: "", id: 9},
       ],
        isitPlayer1: false,
       gamecomplete: false,
-      isthereawinner: ""
+      isthereawinner: false
+
     })
 
   }
@@ -76,20 +75,20 @@ class App extends Component {
     let clearedscore = this.state.tictactoe; 
     this.setState({
       tictactoe: [
-        {draw : false, isitXorO: "", id: 1},
-        {draw : false, isitXorO: "", id: 2},
-        {draw : false, isitXorO: "", id: 3},
-        {draw : false, isitXorO: "", id: 4},
-        {draw : false, isitXorO: "", id: 5},
-        {draw : false, isitXorO: "", id: 6},
-        {draw : false, isitXorO: "", id: 7},
-        {draw : false, isitXorO: "", id: 8},
-        {draw : false, isitXorO: "", id: 9},
+        {draw: false, isitXorO: "", id: 1},
+        {draw: false, isitXorO: "", id: 2},
+        {draw: false, isitXorO: "", id: 3},
+        {draw: false, isitXorO: "", id: 4},
+        {draw: false, isitXorO: "", id: 5},
+        {draw: false, isitXorO: "", id: 6},
+        {draw: false, isitXorO: "", id: 7},
+        {draw: false, isitXorO: "", id: 8},
+        {draw: false, isitXorO: "", id: 9},
       ],
       isitPlayer1: false,
       gamecomplete: false,
       isthereawinner: "",
-      score:{player1 : 0, player2 : 0}
+      score:{player1: 0, player2: 0 , ties: 0}
     })
   }
 
@@ -101,24 +100,24 @@ class App extends Component {
   }
 
   gameComplete(){
-    // console.log("Checking if game is done");
     let boardfull = true;
     for (let i = 0; i < this.state.tictactoe.length; i++){
-      if (this.state.tictactoe[i].draw === false){
-        boardfull = false;
-      } 
+        if (this.state.tictactoe[i].draw === false){
+          boardfull = false;
+        } 
     }
     if (boardfull === true) {
-      this.setState({
-      gamecomplete: boardfull
-    })
-    // console.log('game is done')
+        this.setState({
+        gamecomplete: boardfull
+      }, this.didSomeoneWin)
     }
   }
 
   didSomeoneWin() {
     let isthereawinner = this.state.isthereawinner;
     var whoWon = "";
+    let tiecount = this.state.score.ties;
+    console.log("start" + tiecount)
     let player1 = this.state.score.player1;
     let player2 = this.state.score.player2;
     if ((this.state.tictactoe[0].isitXorO === this.state.tictactoe[1].isitXorO) && (this.state.tictactoe[0].isitXorO === this.state.tictactoe[2].isitXorO) && this.state.tictactoe[0].draw === true) {
@@ -139,7 +138,10 @@ class App extends Component {
       isthereawinner = true
     }
     whoWon = ""
+    console.log("Checking if there's a winner: " + isthereawinner);
+    console.log("Checking if the game is complete: " + this.state.gamecomplete);
     if (isthereawinner === true) {
+      // console.log("I'm in the if statement.");
       if (this.state.isitPlayer1 === true) {
         whoWon = "Player 1 won";
         player1 = player1 + 1;
@@ -150,11 +152,18 @@ class App extends Component {
       this.setState ({
       gamecomplete: isthereawinner,
       isthereawinner: whoWon,
-      score: {player1, player2}
+      score: {player1, player2, ties: tiecount}
       })
+    } else if (isthereawinner === false && this.state.gamecomplete === true) {
+      // console.log("I'm in the else if.")
+        tiecount = tiecount + 1;
+        console.log("end" + tiecount)
+      this.setState ({
+        score: {player1, player2, ties: tiecount}
+      })
+      // console.log(this.state.score.ties);
     }
   }
-
 
   render() {
     const tictactoes = this.state.tictactoe
@@ -193,11 +202,13 @@ class App extends Component {
 
         <p>GAME COMPLETE: {this.state.gamecomplete == true ? "TRUE" : "FALSE"}</p>
         <p>{this.state.isthereawinner} </p>
-        <button type="button" className="btn btn-warning" onClick = {this.newGamehandleClick}>New Game</button>
+        <div className = "buttonIcons">
+          <button type="button" className="btn btn-warning" onClick = {this.newGamehandleClick}>New Game</button>
         
-        <button type="button" className="btn btn-success" onClick = {this.handleClearScore}>Clear Score</button>
-        <p className = "scoreBoard">Player 1 = {this.state.score.player1} | Player 2 = {this.state.score.player2} </p>
-
+          <button type="button" className="btn btn-success" onClick = {this.handleClearScore}>Clear Score</button>
+        </div>
+        <p className = "scoreBoard">Player 1 = {this.state.score.player1} | Ties: {this.state.score.ties} | Player 2 = {this.state.score.player2}  </p>
+        
       </div>
     );
   }
