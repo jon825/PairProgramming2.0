@@ -191,12 +191,12 @@ class App extends Component {
 
       {tictactoeBoxes}
 
-      <p>The game is done: {this.state.gamecomplete == true ? "true" : "false"}</p>
-      <p>{this.state.isthereawinner} </p>
-      <button onClick = {this.newGamehandleClick}>New Game</button>
-      <button onClick = {this.handleClearScore}>Clear Score</button>
-      <p>PLAYER 1 = {this.state.score.player1} PLAYER 2 = {this.state.score.player2} </p>
-
+        <p>GAME COMPLETE: {this.state.gamecomplete == true ? "TRUE" : "FALSE"}</p>
+        <p>{this.state.isthereawinner} </p>
+        <button type="button" className="btn btn-warning" onClick = {this.newGamehandleClick}>New Game</button>
+        
+        <button type="button" className="btn btn-success" onClick = {this.handleClearScore}>Clear Score</button>
+        <p className = "scoreBoard">Player 1 = {this.state.score.player1} | Player 2 = {this.state.score.player2} </p>
 
       </div>
     );

@@ -4,6 +4,7 @@ body {
 }
 
 .tictactoeContainer{
+  padding-top: 150px;
   width: 320px;
   height: 320px;
   margin: auto;
@@ -17,7 +18,7 @@ body {
   border-color: white;
   float: left;
   color: white;
-  
+  border-radius: 10px;
 }
 
 .tictactoeBoxActive {
@@ -30,10 +31,11 @@ body {
   color: white;
   font-size: 50px;
   text-align: center;
+  border-radius: 10px;
 }
 
 .tictactoeBoxActiveO{
-   background-color:green;
+  background-color:green;
   width: 100px;
   height: 100px;
   border: solid;
@@ -42,10 +44,17 @@ body {
   color: white;
   font-size: 50px;
   text-align: center;
+  border-radius: 10px;
 }
 
 p {
   color: white;
+  font-family: sans-serif;
+  line-height: 400%;
+}
+
+button {
+  margin-right: 20px;
 }
 
 
