@@ -4,29 +4,43 @@ body {
 }
 
 .tictactoeContainer{
-  width: 620px;
-  height: 620px;
+  width: 320px;
+  height: 320px;
+  margin: auto;
 }
 
 .tictactoeBox {
   background-color:black;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border: solid;
   border-color: white;
   float: left;
   color: white;
+  
 }
 
 .tictactoeBoxActive {
   background-color:salmon;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border: solid;
   border-color: white;
   float: left;
   color: white;
-  font-size: 100px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.tictactoeBoxActiveO{
+   background-color:green;
+  width: 100px;
+  height: 100px;
+  border: solid;
+  border-color: white;
+  float: left;
+  color: white;
+  font-size: 50px;
   text-align: center;
 }
 
