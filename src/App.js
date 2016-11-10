@@ -199,7 +199,6 @@ class App extends Component {
           {tictactoeBoxes}
 
           <div className="game-status">
-              <p>GAME COMPLETE: {this.state.gamecomplete === true ? "TRUE" : "FALSE"}</p>
               <p>{this.state.isthereawinner} </p>
               <p className="scoreBoard">Player 1 = {this.state.score.player1} | Ties: {this.state.score.ties} | Player 2 = {this.state.score.player2}  </p>
           </div> 
