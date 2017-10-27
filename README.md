@@ -7,3 +7,18 @@ This wep app was created with a fellow Brainstation classmates through Pair Prog
 ## Rules of the game
 
 The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either oppent has three in a row or all nine squares are filled.
+
+## Develop
+CookBook is developed with create-react-app.
+```
+$ npm install
+$ npm start
+```
+
+## Built with
+* React
+
+## Built By
+[Jonathan](https://github.com/jon825) from Toronto
+
+[Thuy](https://github.com/clearlyTHUYDOAN) from Toronto
